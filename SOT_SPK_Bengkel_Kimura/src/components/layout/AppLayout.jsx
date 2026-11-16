@@ -19,6 +19,7 @@ export default function AppLayout({ currentRoute, onNavigate, onLogout, user, ch
       <div className="main-wrapper">
         <Topbar
           currentRoute={currentRoute}
+          onNavigate={onNavigate}
           onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
         />
         <main className="page-content" id="main-content">

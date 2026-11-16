@@ -1083,4 +1083,1010 @@ p {
   }
 }
 
+/* ===================================================================
+   Landing Page Styles — Kimura SPK (Red #D92D35, Ink #111111, White)
+   Ultra-Premium Modern SaaS Website Design
+   =================================================================== */
+
+.landing-wrapper {
+  background-color: var(--canvas);
+  color: var(--ink-950);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.landing-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-canvas {
+  background-color: var(--canvas);
+}
+
+.text-red {
+  color: var(--brand-600);
+}
+
+/* ================== 1. NAVBAR ================== */
+.landing-nav {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  height: 72px;
+}
+
+.landing-nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.landing-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+}
+
+.brand-logo-box {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--brand-600), var(--brand-700));
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  box-shadow: 0 3px 10px rgba(217, 45, 53, 0.35);
+}
+
+.brand-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title-main {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--ink-950);
+  line-height: 1.15;
+}
+
+.brand-title-tag {
+  font-size: 11px;
+  color: var(--ink-500);
+}
+
+.landing-nav-center {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link-btn {
+  background: none;
+  border: none;
+  color: var(--ink-700);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 0;
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.nav-link-btn:hover {
+  color: var(--brand-600);
+}
+
+.landing-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-login-btn {
+  padding: 8px 16px;
+  font-size: 13.5px;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px;
+  border-radius: var(--radius-md);
+  color: var(--ink-800);
+  cursor: pointer;
+}
+
+.mobile-nav-dropdown {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
+
+.mobile-nav-item {
+  padding: 14px 20px;
+  text-align: left;
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-800);
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer;
+}
+
+.mobile-nav-item:hover {
+  background-color: var(--canvas);
+  color: var(--brand-600);
+}
+
+/* ================== 2. HERO SECTION ================== */
+.hero-section {
+  padding: 72px 0 84px;
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 60%, var(--canvas) 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background-color: var(--brand-50);
+  border: 1px solid var(--brand-100);
+  border-radius: 9999px;
+  font-size: 12.5px;
+  margin-bottom: 24px;
+}
+
+.hero-badge-pill {
+  font-weight: 700;
+  color: #ffffff;
+  background-color: var(--brand-600);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.hero-badge-text {
+  font-weight: 600;
+  color: var(--brand-700);
+}
+
+.hero-headline {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.8px;
+  color: var(--ink-950);
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 16.5px;
+  color: var(--ink-600);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 560px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.btn-hero {
+  padding: 13px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+}
+
+.hero-features-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.hero-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-700);
+}
+
+/* Realistic UI Mockup in Hero Right */
+.mockup-frame {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: transform var(--transition-normal);
+}
+
+.mockup-frame:hover {
+  transform: translateY(-4px);
+}
+
+.mockup-header {
+  background-color: #1a1a1a;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.mockup-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mockup-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-red { background-color: #ef4444; }
+.dot-yellow { background-color: #f59e0b; }
+.dot-green { background-color: #10b981; }
+
+.mockup-header-title {
+  font-size: 11.5px;
+  color: #a3a3a3;
+  font-family: monospace;
+}
+
+.mockup-status-tag {
+  font-size: 11px;
+  font-weight: 600;
+  background-color: rgba(217, 45, 53, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(217, 45, 53, 0.3);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.mockup-body {
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.mockup-top-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand-600);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.mockup-rank-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-600);
+  background-color: var(--brand-50);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  margin-bottom: 4px;
+}
+
+.mockup-winner-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink-950);
+}
+
+.mockup-winner-meta {
+  font-size: 11.5px;
+  color: var(--ink-500);
+}
+
+.mockup-winner-score {
+  text-align: right;
+}
+
+.score-val {
+  display: block;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--brand-600);
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 10.5px;
+  color: var(--ink-400);
+  text-transform: uppercase;
+}
+
+.mockup-criteria-bars {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.mockup-bar-item {
+  margin-bottom: 10px;
+}
+
+.mockup-bar-item:last-child {
+  margin-bottom: 0;
+}
+
+.bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+  margin-bottom: 4px;
+}
+
+.bar-name {
+  font-weight: 600;
+  color: var(--ink-800);
+}
+
+.bar-val {
+  color: var(--ink-500);
+  font-family: monospace;
+}
+
+.bar-track {
+  height: 6px;
+  background-color: #e5e5e5;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+}
+
+.mockup-mini-table {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.mini-table-head {
+  display: grid;
+  grid-template-columns: 45px 1fr 75px 85px;
+  padding: 8px 12px;
+  background-color: #f3f4f6;
+  font-weight: 700;
+  color: var(--ink-600);
+  font-size: 11px;
+}
+
+.mini-table-row {
+  display: grid;
+  grid-template-columns: 45px 1fr 75px 85px;
+  padding: 9px 12px;
+  align-items: center;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.mini-table-row.active-row {
+  background-color: #fffafb;
+}
+
+.rank-num {
+  font-weight: 700;
+  color: var(--ink-700);
+}
+
+.rank-1 {
+  color: var(--brand-600);
+}
+
+.sup-title {
+  font-weight: 600;
+  color: var(--ink-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sup-score {
+  text-align: right;
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--ink-900);
+}
+
+.sup-badge {
+  text-align: right;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  justify-self: end;
+}
+
+.badge-green {
+  background-color: #ecfdf5;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.badge-blue {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-gray {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
+
+/* ================== GENERAL SECTION LAYOUT ================== */
+.landing-block {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-heading-box {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 56px;
+}
+
+.heading-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand-600);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.heading-title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--ink-950);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.heading-desc {
+  font-size: 15.5px;
+  color: var(--ink-600);
+  line-height: 1.6;
+}
+
+/* ================== 3. TENTANG SISTEM ================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.about-content-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.full-span-card {
+  grid-column: 1 / -1;
+  background-color: #fafafa;
+}
+
+.about-icon-header {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--brand-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.about-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink-950);
+  margin-bottom: 12px;
+}
+
+.about-card-text {
+  font-size: 14.5px;
+  color: var(--ink-600);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.about-card-text:last-child {
+  margin-bottom: 0;
+}
+
+.owner-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 18px;
+}
+
+.owner-benefit-item {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 18px;
+}
+
+.benefit-number {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--brand-600);
+  margin-bottom: 8px;
+}
+
+.owner-benefit-item h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink-950);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.owner-benefit-item p {
+  font-size: 13px;
+  color: var(--ink-600);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ================== 4. KEUNGGULAN SISTEM ================== */
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.advantage-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 22px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.advantage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--ink-300);
+}
+
+.advantage-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--brand-50);
+  color: var(--brand-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.advantage-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink-950);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.advantage-text {
+  font-size: 13.5px;
+  color: var(--ink-600);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 18px;
+}
+
+.advantage-footer {
+  margin-top: auto;
+}
+
+.advantage-pill {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-700);
+  background-color: var(--canvas);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+}
+
+/* ================== 5. KRITERIA PENILAIAN ================== */
+.criteria-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.criterion-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+}
+
+.criterion-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--ink-400);
+}
+
+.criterion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.criterion-code {
+  font-size: 12px;
+  font-weight: 800;
+  background-color: var(--ink-950);
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.criterion-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink-950);
+  margin-bottom: 10px;
+}
+
+.criterion-desc {
+  font-size: 13.5px;
+  color: var(--ink-600);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.criterion-formula {
+  background-color: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font-size: 11.5px;
+  color: var(--ink-500);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.criterion-formula code {
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--brand-600);
+}
+
+/* Notice Card Wajib Owner */
+.criteria-notice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background-color: var(--brand-50);
+  border: 1px solid var(--brand-100);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+}
+
+.notice-icon-wrap {
+  margin-top: 2px;
+}
+
+.notice-content {
+  font-size: 13px;
+  color: var(--ink-800);
+  line-height: 1.55;
+}
+
+.notice-content p {
+  margin-top: 4px;
+  color: var(--ink-700);
+}
+
+/* ================== 6. ALUR METODE SAW ================== */
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.flow-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 16px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform var(--transition-fast);
+}
+
+.flow-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--ink-400);
+}
+
+.highlight-flow {
+  border-color: var(--brand-600);
+  background: linear-gradient(180deg, #ffffff 0%, var(--brand-50) 100%);
+  box-shadow: 0 4px 14px rgba(217, 45, 53, 0.15);
+}
+
+.flow-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--ink-950);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.flow-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--canvas);
+  color: var(--ink-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.flow-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-950);
+  margin-bottom: 6px;
+}
+
+.flow-desc {
+  font-size: 11.5px;
+  color: var(--ink-500);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ================== 7. FOOTER ================== */
+.landing-footer-dark {
+  background-color: #0e0e0e;
+  color: #ffffff;
+  padding: 68px 0 32px;
+  border-top: 1px solid #222222;
+}
+
+.footer-main-row {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.2fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.footer-brand-text {
+  font-size: 13.5px;
+  color: #a3a3a3;
+  line-height: 1.65;
+  margin-bottom: 18px;
+  max-width: 400px;
+}
+
+.footer-badge-tech {
+  font-size: 12px;
+  color: #737373;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-header-text {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 18px;
+}
+
+.footer-link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-link-list button {
+  background: none;
+  border: none;
+  color: #a3a3a3;
+  font-size: 13.5px;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: color var(--transition-fast);
+}
+
+.footer-link-list button:hover {
+  color: #ffffff;
+}
+
+.footer-contact-box {
+  font-size: 13px;
+  color: #a3a3a3;
+  line-height: 1.6;
+}
+
+.footer-contact-box p {
+  margin-bottom: 6px;
+}
+
+.footer-copyright-row {
+  border-top: 1px solid #222222;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  color: #737373;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-academic-tag {
+  color: #525252;
+}
+
+/* ================== RESPONSIVENESS ================== */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .advantages-grid,
+  .criteria-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .workflow-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .owner-benefit-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-nav-center,
+  .nav-login-btn {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+
+  .hero-headline {
+    font-size: 32px;
+  }
+
+  .about-grid,
+  .advantages-grid,
+  .criteria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-main-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+
+
 

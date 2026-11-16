@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { IconAlert, IconCheck } from '../../components/ui/Icons';
+import { IconAlert, IconCheck, IconArrowRight } from '../../components/ui/Icons';
 
-export default function LoginPage({ onLoginSuccess }) {
+export default function LoginPage({ onLoginSuccess, onBackToLanding }) {
   const [username, setUsername] = useState('admin');
   const [password, setPassword] = useState('admin123');
   const [error, setError] = useState('');
@@ -9,7 +9,7 @@ export default function LoginPage({ onLoginSuccess }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!username.trim()) {
-      setError('Nama pengguna (username) wajib diisi.');
+      setError('Username atau email wajib diisi.');
       return;
     }
     if (!password.trim()) {
@@ -28,6 +28,19 @@ export default function LoginPage({ onLoginSuccess }) {
   return (
     <div className="auth-wrapper">
       <div className="auth-card">
+        {onBackToLanding && (
+          <div style={{ marginBottom: '16px' }}>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              style={{ padding: '6px 12px', fontSize: '12.5px' }}
+              onClick={onBackToLanding}
+            >
+              ← Kembali ke Beranda Landing Page
+            </button>
+          </div>
+        )}
+
         <div className="auth-header">
           <div className="auth-brand">
             <div className="brand-icon">K</div>
@@ -55,7 +68,7 @@ export default function LoginPage({ onLoginSuccess }) {
         <form onSubmit={handleSubmit} className="auth-form" noValidate>
           <div className="form-group">
             <label htmlFor="username" className="form-label">
-              Nama Pengguna (Username)
+              Username atau Email
             </label>
             <input
               id="username"
@@ -63,7 +76,7 @@ export default function LoginPage({ onLoginSuccess }) {
               className="form-input"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="Contoh: admin"
+              placeholder="admin atau admin@kimura.com"
               autoComplete="username"
               required
             />
@@ -92,7 +105,8 @@ export default function LoginPage({ onLoginSuccess }) {
             className="btn btn-primary"
             style={{ width: '100%', marginTop: '8px', padding: '12px' }}
           >
-            Masuk ke Aplikasi
+            <span>Masuk ke Dashboard</span>
+            <IconArrowRight size={16} />
           </button>
         </form>
       </div>

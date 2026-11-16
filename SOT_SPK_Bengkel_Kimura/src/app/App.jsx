@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DataProvider } from '../context/DataContext';
 import AppLayout from '../components/layout/AppLayout';
+import LandingPage from '../features/landing/LandingPage';
 import LoginPage from '../features/auth/LoginPage';
 import DashboardPage from '../features/dashboard/DashboardPage';
 import SuppliersPage from '../features/suppliers/SuppliersPage';
@@ -12,6 +13,29 @@ import RankingPage from '../features/ranking/RankingPage';
 import ReportsPage from '../features/reports/ReportsPage';
 import { DEFAULT_ROUTE } from './routes';
 
+const APP_INTERNAL_ROUTES = [
+  'dashboard',
+  'suppliers',
+  'criteria',
+  'weights',
+  'assessments',
+  'saw',
+  'ranking',
+  'reports'
+];
+
+function resolveRouteFromHash(hashString) {
+  const cleanHash = (hashString || '').replace(/^#/, '').trim();
+  if (cleanHash === 'login') {
+    return 'login';
+  }
+  if (APP_INTERNAL_ROUTES.includes(cleanHash)) {
+    return cleanHash;
+  }
+  // Default to 'landing' for '', 'landing', or section anchors ('beranda', 'tentang', 'keunggulan', 'kriteria', 'alur-saw')
+  return 'landing';
+}
+
 function MainApp() {
   // Autentikasi Prototype (disimpan di session state / memory)
   const [isAuthenticated, setIsAuthenticated] = useState(true);
@@ -22,16 +46,13 @@ function MainApp() {
 
   // Rute aktif disinkronkan dengan Hash URL browser
   const [currentRoute, setCurrentRoute] = useState(() => {
-    const hash = window.location.hash.replace('#', '');
-    return hash || DEFAULT_ROUTE;
+    return resolveRouteFromHash(window.location.hash);
   });
 
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash) {
-        setCurrentRoute(hash);
-      }
+      const resolved = resolveRouteFromHash(window.location.hash);
+      setCurrentRoute(resolved);
     };
 
     window.addEventListener('hashchange', handleHashChange);
@@ -47,19 +68,48 @@ function MainApp() {
   const handleLogin = (userData) => {
     setUser(userData);
     setIsAuthenticated(true);
-    setCurrentRoute(DEFAULT_ROUTE);
-    window.location.hash = `#${DEFAULT_ROUTE}`;
+    setCurrentRoute('dashboard');
+    window.location.hash = '#dashboard';
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
-    window.location.hash = '';
+    setCurrentRoute('landing');
+    window.location.hash = '#landing';
   };
 
-  if (!isAuthenticated) {
-    return <LoginPage onLoginSuccess={handleLogin} />;
+  // 1. Tampilan Khusus Landing Page Publik (Default)
+  if (currentRoute === 'landing') {
+    return (
+      <LandingPage
+        onGoToLogin={() => handleNavigate('login')}
+        onGoToDashboard={() => handleNavigate('dashboard')}
+        isAuthenticated={isAuthenticated}
+      />
+    );
   }
 
+  // 2. Tampilan Khusus Login
+  if (currentRoute === 'login') {
+    return (
+      <LoginPage
+        onLoginSuccess={handleLogin}
+        onBackToLanding={() => handleNavigate('landing')}
+      />
+    );
+  }
+
+  // 3. Jika pengguna belum login dan mengakses halaman internal
+  if (!isAuthenticated) {
+    return (
+      <LoginPage
+        onLoginSuccess={handleLogin}
+        onBackToLanding={() => handleNavigate('landing')}
+      />
+    );
+  }
+
+  // 4. Router Konten Dashboard Internal
   const renderContent = () => {
     switch (currentRoute) {
       case 'dashboard':
