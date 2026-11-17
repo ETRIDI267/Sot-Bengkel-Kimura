@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IconAlert, IconCheck, IconArrowRight } from '../../components/ui/Icons';
+import { IconAlert, IconCheck, IconArrowRight, IconShield } from '../../components/ui/Icons';
 
 export default function LoginPage({ onLoginSuccess, onBackToLanding }) {
   const [username, setUsername] = useState('admin');
@@ -25,18 +25,24 @@ export default function LoginPage({ onLoginSuccess, onBackToLanding }) {
     });
   };
 
+  const handleFillDemo = () => {
+    setUsername('admin');
+    setPassword('admin123');
+    setError('');
+  };
+
   return (
     <div className="auth-wrapper">
       <div className="auth-card">
         {onBackToLanding && (
-          <div style={{ marginBottom: '16px' }}>
+          <div style={{ marginBottom: '20px' }}>
             <button
               type="button"
               className="btn btn-secondary"
-              style={{ padding: '6px 12px', fontSize: '12.5px' }}
+              style={{ padding: '7px 14px', fontSize: '13px' }}
               onClick={onBackToLanding}
             >
-              ← Kembali ke Beranda Landing Page
+              ← Kembali ke Landing Page
             </button>
           </div>
         )}
@@ -49,12 +55,49 @@ export default function LoginPage({ onLoginSuccess, onBackToLanding }) {
           <p className="auth-subtitle">
             Sistem Pendukung Keputusan Pemilihan Supplier Sparepart Bengkel Kimura (Metode SAW)
           </p>
+          <div style={{ marginTop: '10px' }}>
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                fontSize: '11.5px',
+                fontWeight: '600',
+                color: 'var(--brand-700)',
+                background: 'var(--brand-50)',
+                border: '1px solid var(--brand-100)',
+                padding: '3px 10px',
+                borderRadius: '9999px'
+              }}
+            >
+              <IconShield size={13} />
+              Portal Admin & Evaluator
+            </span>
+          </div>
         </div>
 
         <div className="auth-demo-banner" role="status">
-          <strong>Pemberitahuan Prototype:</strong>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <strong>Pemberitahuan Prototype:</strong>
+            <button
+              type="button"
+              onClick={handleFillDemo}
+              style={{
+                fontSize: '11px',
+                textDecoration: 'underline',
+                color: 'var(--warning)',
+                fontWeight: '700',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer'
+              }}
+              title="Isi otomatis username dan password demo"
+            >
+              Gunakan Akun Demo
+            </button>
+          </div>
           <p style={{ marginTop: '4px', fontSize: '12px' }}>
-            Autentikasi ini adalah simulasi antarmuka front-end untuk keperluan pengujian dan demonstrasi sistem. Belum terhubung ke backend aman atau database produksi.
+            Autentikasi ini adalah simulasi antarmuka front-end untuk keperluan pengujian dan demonstrasi sistem.
           </p>
         </div>
 
@@ -80,7 +123,7 @@ export default function LoginPage({ onLoginSuccess, onBackToLanding }) {
               autoComplete="username"
               required
             />
-            <span className="form-helper">Akun demo default: admin</span>
+            <span className="form-helper">Akun demo default: <strong>admin</strong></span>
           </div>
 
           <div className="form-group">
@@ -97,7 +140,7 @@ export default function LoginPage({ onLoginSuccess, onBackToLanding }) {
               autoComplete="current-password"
               required
             />
-            <span className="form-helper">Password demo bebas / sembarang</span>
+            <span className="form-helper">Password demo bebas / sembarang (cth: <strong>admin123</strong>)</span>
           </div>
 
           <button
@@ -105,7 +148,7 @@ export default function LoginPage({ onLoginSuccess, onBackToLanding }) {
             className="btn btn-primary"
             style={{ width: '100%', marginTop: '8px', padding: '12px' }}
           >
-            <span>Masuk ke Dashboard</span>
+            <span>Masuk ke Dashboard Admin</span>
             <IconArrowRight size={16} />
           </button>
         </form>

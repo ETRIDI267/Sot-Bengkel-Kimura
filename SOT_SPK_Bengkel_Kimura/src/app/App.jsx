@@ -37,11 +37,32 @@ function resolveRouteFromHash(hashString) {
 }
 
 function MainApp() {
-  // Autentikasi Prototype (disimpan di session state / memory)
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const [user, setUser] = useState({
-    name: 'Admin Bengkel',
-    role: 'Administrator (Demo)'
+  // Autentikasi Prototype (disinkronkan dengan Session Storage agar mulus saat refresh)
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    try {
+      const stored = sessionStorage.getItem('kimura_spk_auth');
+      if (stored !== null) return stored === 'true';
+      // Jika hash awal saat pertama dibuka adalah rute admin internal, aktifkan otomatis untuk kemudahan peninjauan
+      const cleanHash = (window.location.hash || '').replace(/^#/, '').trim();
+      if (APP_INTERNAL_ROUTES.includes(cleanHash)) {
+        sessionStorage.setItem('kimura_spk_auth', 'true');
+        return true;
+      }
+      return false; // Pengunjung baru di Landing Page
+    } catch (e) {
+      return false;
+    }
+  });
+
+  const [user, setUser] = useState(() => {
+    try {
+      const storedUser = sessionStorage.getItem('kimura_spk_user');
+      if (storedUser) return JSON.parse(storedUser);
+    } catch (e) {}
+    return {
+      name: 'Admin Bengkel',
+      role: 'Administrator (Demo)'
+    };
   });
 
   // Rute aktif disinkronkan dengan Hash URL browser
@@ -68,12 +89,20 @@ function MainApp() {
   const handleLogin = (userData) => {
     setUser(userData);
     setIsAuthenticated(true);
+    try {
+      sessionStorage.setItem('kimura_spk_auth', 'true');
+      sessionStorage.setItem('kimura_spk_user', JSON.stringify(userData));
+    } catch (e) {}
     setCurrentRoute('dashboard');
     window.location.hash = '#dashboard';
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
+    try {
+      sessionStorage.removeItem('kimura_spk_auth');
+      sessionStorage.removeItem('kimura_spk_user');
+    } catch (e) {}
     setCurrentRoute('landing');
     window.location.hash = '#landing';
   };
